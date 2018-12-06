@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 # -*- coding:utf-8 -*-
 # 测试类使用
-
+# 支持继承，同时页支持多继承，classname(baseclassname1,baseclassname2,...)
+# 调用子类未实现的方法，会按圆括号内基类的顺序从左向右查询
 
 class JustCounter:
     # 私有属性
@@ -25,7 +26,7 @@ def just_counter_test():
         print("error catch")
 
 
-class people:
+class People:
     name = ''
     age = 0
     __weight = 0
@@ -39,21 +40,36 @@ class people:
         print('我是{0},今年{1},体重{2}'.format(self.name, self.age, self.__weight))
 
 
-class student(people):
+class Boy():
+    def speak(self):
+        print("I am a boy")
+
+
+class Girl():
+    def speak(self):
+        print("I am a Girl")
+
+
+class Student(People, Boy, Girl):
     grade = ''
 
     def __init__(self, n, a, w, g):
-        # super(self, n, a, w)
-        people.__init__(self, n, a, w)
+        super().__init__(n, a, w)
+        # People.__init__(self, n, a, w)
         self.grade = g
 
     def speak(self):
+        super().speak()
+        # People.speak(self)
+        # Boy.speak(self)
+        # G irl.speak(self)
         print("%s 说：我 %d 岁了，我在读 %d 年级" % (self.name, self.age, self.grade))
 
 
 def class_student_test():
-    s = student('tim', 25, 120, 6)
+    s = Student('tim', 25, 120, 6)
     print('s:', s.name)
+    s.speak()
 
 
 if __name__ == '__main__':
