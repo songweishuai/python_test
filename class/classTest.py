@@ -3,6 +3,8 @@
 # 测试类使用
 # 支持继承，同时页支持多继承，classname(baseclassname1,baseclassname2,...)
 # 调用子类未实现的方法，会按圆括号内基类的顺序从左向右查询
+# 基类的私有方法不能2继承
+
 
 class JustCounter:
     # 私有属性
@@ -39,13 +41,22 @@ class People:
     def speak(self):
         print('我是{0},今年{1},体重{2}'.format(self.name, self.age, self.__weight))
 
+    def proud(self):
+        print("I am an people")
 
-class Boy():
+
+class Boy:
     def speak(self):
         print("I am a boy")
 
+    def __speak(self):
+        print("I am a shuai")
 
-class Girl():
+    def proud(self):
+        self.__speak()
+
+
+class Girl:
     def speak(self):
         print("I am a Girl")
 
@@ -70,6 +81,11 @@ def class_student_test():
     s = Student('tim', 25, 120, 6)
     print('s:', s.name)
     s.speak()
+    # 私有方法不能继承
+    # s.__speak();
+    s.proud()
+    # 使用super方法调用父类的方法
+    super(Student, s).proud()
 
 
 if __name__ == '__main__':
