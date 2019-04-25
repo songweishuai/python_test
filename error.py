@@ -51,6 +51,9 @@ def divide(x, y):
 
 
 if __name__ == '__main__':
+    print(sys.exc_info())
+    print(sys.exec_prefix)
+
     test_1()
 
     test_2()
@@ -62,4 +65,4 @@ if __name__ == '__main__':
 
     divide(2, 1)
     divide(2, 0)
-    #divide('2', '1')
+    # divide('2', '1')

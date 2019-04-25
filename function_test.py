@@ -29,8 +29,25 @@ def outter():
             print('inner fun print o_count', o_count)
 
         inner()
-        print('inner_0:',o_count)
+        print('inner_0:', o_count)
+
     inner_0()
+
+
+def w1(func):
+    print('正在装饰')
+
+    def cou():
+        print('22222222222')
+        func()
+
+    return cou
+
+
+# 使用w1装饰f1函数，f1=w1(f1)
+@w1
+def f1():
+    print('11111111111')
 
 
 if __name__ == '__main__':
@@ -49,3 +66,7 @@ if __name__ == '__main__':
     print('if_count:', if_count)
 
     outter()
+
+    # 调用f1函数
+    f1()
+

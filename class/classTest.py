@@ -71,6 +71,7 @@ class Student(People, Boy, Girl):
 
     def speak(self):
         super().speak()
+        Girl.speak(self)
         # People.speak(self)
         # Boy.speak(self)
         # G irl.speak(self)
@@ -81,9 +82,11 @@ def class_student_test():
     s = Student('tim', 25, 120, 6)
     print('s:', s.name)
     s.speak()
+
     # 私有方法不能继承
     # s.__speak();
     s.proud()
+
     # 使用super方法调用父类的方法
     super(Student, s).proud()
 

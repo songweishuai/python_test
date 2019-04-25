@@ -23,6 +23,11 @@ def list_zip_test():
 
 
 def dict_items_test():
+    # test_dict = dict()
+    # test_dict["hello"] = "world"
+    # print(test_dict)
+    ret = dict(code=1, count=0, msg='OK')
+    print(ret)
     knights = {'gallahad': 'the pure', 'robin': 'the brave'}
     for key, val in knights.items():
         print(key, val)

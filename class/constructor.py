@@ -17,7 +17,8 @@ class Son(Father):
     def __init__(self, name):
         print("hi")
         # 需要主动调用父类的构造方法
-        super().__init__(name)
+        # super().__init__(name)
+        # Father.__init__(self, name)
         self.name = name
 
     def getName(self):
@@ -26,4 +27,5 @@ class Son(Father):
 
 if __name__ == "__main__":
     son = Son('runoob')
-    print(son.getName())
+    # print(son.getName())
+    print(repr(son))
